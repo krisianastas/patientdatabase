@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>
+            Pacienti - nga Krisi Anastas
+        </title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="display-1">Rekordi i zgjedhur: {{user.name}}</h1>
+            <form method="post">
+                {% csrf_token %}
+                <label for="name" class="form-label">Emri i pacientit:</label><br>
+                <input type="text" value="{{user.name}}" name="name" class="form-text"><br>
+                <br>
+                <label for="tel" class="form-label">Numri i telefonit:</label><br>
+                <input type="text" value="{{user.tel}}" name="tel" class="form-text"><br>
+                <br>
+                <label for="email" class="form-label">Adresa e-mail:</label><br>
+                <input type="text" value="{{user.email}}" name="email" class="form-text"><br>
+                <br>
+                <label for="mjeku" class="form-label">Mjeku përgjegjës:</label><br>
+                <input type="text" value="{{user.mjeku}}" name="mjeku" class="form-text"><br>
+                <br>
+                <label for="data" class="form-label">Data:</label><br>
+                <input type="date" value="{{user.data}}" name="data" class="form-text"><br>
+                <br>
+                <label for="price" class="form-label">Çmimi i shërbimeve:</label><br>
+                <input type="text" value="{{user.price}}" name="price" class="form-text"><br>
+                <br>
+                <label for="services" class="form-label">Shërbimet e ofruara:</label><br>
+                <textarea name="services" cols="40" rows="5" class="form-control">{{user.services}}</textarea><br>
+            
+                <button type="submit" name="create" class="btn btn-primary">Krijo Rekord</button>
+                <button type="submit" name="search" class="btn btn-primary">Kërko Rekord</button>
+                <button type="submit" name="update" class="btn btn-primary">Përditëso Rekord</button>
+                <button type="submit" name="delete" class="btn btn-primary">Fshi Rekord</button>
+                <button type="submit" name="manual" class="btn btn-danger">Manuali i Përdoruesit</button>
+            </form>
+        </div>
+    </body>
+</html>
