@@ -20,5 +20,9 @@ from homepage.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_screen_view),
+    path('', shto_pacient, name="shto_pacient"),
+    path('database/', print_databazen, name="databaza"),
+    path('search/', kerko_databazen, name="kerkim"),
+    path('edit-record/<str:pk>/', editRecord, name="edit-rec"),
+    path('delete-record/<str:pk>/', deleteRecord, name="delete-rec"),
 ]

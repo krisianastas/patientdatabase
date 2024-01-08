@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>
+            Pacienti - nga Krisi Anastas
+        </title>
+    </head>
+    <body>
+        {% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Databaza e Rekordeve </h1>
+                    <form action="" method='POST'>
+                        {% csrf_token %}
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Emri</th>
+                                    <th>Nr. Cel</th>
+                                    <th>Shërbimet</th>
+                                    <th>Veprimi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for rec in form %}
+                                <tr>
+                                    <td>{{ rec.id }}</td>
+                                    <td>{{ rec.emri }}</td>
+                                    <td>{{ rec.nr_cel }}</td>
+                                    <td>{{ rec.sherbimet }}</td>
+                                    <td>
+                                        <a href="{% url 'edit-rec' rec.id %}" class="btn btn-primary btn-sm">Përditëso Rekord</a>
+                                        <a href="{% url 'delete-rec' rec.id %}" class="btn btn-danger btn-sm">Fshi Rekord</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div> 
+        {% endblock content %}
+    </body>
+</html>

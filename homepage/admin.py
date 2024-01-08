@@ -1,4 +1,4 @@
 from django.contrib import admin
-from homepage.models import Formular
+from .models import Patient
 
-admin.site.register(Formular)
+admin.site.register(Patient)

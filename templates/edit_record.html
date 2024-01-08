@@ -15,17 +15,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Shto Rekord në Databazë </h1>
-                    <form action="" method='POST'>
+                    <h1>Përditëso Rekord në Databazë </h1>
+                    <form action="" method="POST">
                         {% csrf_token %}
                         {{form.as_p}}
-                        <button type="submit" class="btn btn-primary btn-sm" value=""> Shto Rekord</button>
-                        <a href="{% url 'kerkim' %}" class="btn btn-primary btn-sm" type="button"> Kërko Rekord</a>
-                        <a href="{% url 'databaza' %}" class="btn btn-primary btn-sm" type="button"> Shfleto Databazën</a>
+                        <button type="submit" class="btn btn-primary btn-sm" value=""> Përditëso</button>
                     </form>
                 </div>
             </div>
-        </div>       
+        </div>     
         {% endblock content %}
     </body>
 </html>
